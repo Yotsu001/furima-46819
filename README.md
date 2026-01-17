@@ -9,7 +9,7 @@
 | last_name          | string | null: false |
 | first_name_kana    | string | null: false |
 | last_name_kana     | string | null: false |
-| birth_date         | string | null: false |
+| birth_date         | date   | null: false |
 
 ### Association
 
@@ -18,23 +18,22 @@
 
 ## itemsテーブル
 
-|Column         |Type        |Options      |
-|---------------|------------|-------------|
-| name          | string     | null: false |
-| description   | text       | null: false |
-| category      | string     | null: false |
-| status        | string     | null: false |
-| shipping_fee  | string     | null: false |
-| prefecture    | string     | null: false |
-| delivery_time | string     | null: false |
-| price         | string     | null: false |
-| user          | references | null: false, foreign_key: true|
+|Column            |Type        |Options      |
+|------------------|------------|-------------|
+| name             | string     | null: false |
+| description      | text       | null: false |
+| category_id      | integer    | null: false |
+| status_id        | integer    | null: false |
+| shipping_fee_id  | integer    | null: false |
+| prefecture_id    | integer    | null: false |
+| delivery_time_id | integer    | null: false |
+| price            | integer     | null: false |
+| user             | references | null: false, foreign_key: true|
 
 ### Association
 
 - belongs_to :user
 - has_one :purchase
-- has_one :shipping_address
 
 ## purchasesテーブル
 
@@ -55,7 +54,7 @@
 |Column         |Type        |Options      |
 |---------------|------------|-------------|
 | post_code     | string     | null: false |
-| prefecture    | string     | null: false |
+| prefecture_id | integer    | null: false |
 | city          | string     | null: false |
 | address       | string     | null: false |
 | building_name | string     |             |
@@ -64,5 +63,4 @@
 
 ### Association
 
-- belongs_to :item
 - belongs_to :purchase
