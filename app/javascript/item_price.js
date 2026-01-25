@@ -2,7 +2,7 @@ window.addEventListener('turbo:load', () => {
   const priceInput = document.getElementById('item-price');
 
   priceInput.addEventListener("input", () => {
-   console.log("イベント発火");
+   const inputValue = priceInput.value;
 })
 
   const taxpriceDisplay = document.getElementById('add-tax-price');
