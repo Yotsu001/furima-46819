@@ -8,7 +8,7 @@ const price = () => {
    const calculate = () => {
       const inputPrice = Number(priceInput.value);
       addTaxDom.innerHTML = Math.floor(inputPrice * 0.1);
-      profitDom.innerHTML = Math.floor(inputPrice * 0.9);
+      profitDom.innerHTML = Math.floor(inputPrice - addTaxDom.innerHTML);
    };
 
    calculate();
