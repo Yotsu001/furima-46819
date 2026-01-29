@@ -35,7 +35,7 @@ RSpec.describe User, type: :model do
       it 'emailの形式が正しくない場合は登録できない' do
         @user.email = 'invalid_email'
         @user.valid?
-        expect(@user.errors.full_messages).to include("Email is invalid")
+        expect(@user.errors.full_messages).to include('Email is invalid')
       end
 
       it 'passwordが空では登録できない' do
@@ -99,8 +99,8 @@ RSpec.describe User, type: :model do
         @user.last_name = 'Taro'
         @user.valid?
         expect(@user.errors.full_messages).to include('Last name 全角文字を使用してください')
-      end 
-      
+      end
+
       it 'first_name_kanaが空では登録できない' do
         @user.first_name_kana = ''
         @user.valid?
@@ -130,7 +130,6 @@ RSpec.describe User, type: :model do
         @user.valid?
         expect(@user.errors.full_messages).to include("Birth date can't be blank")
       end
-
     end
   end
 end
