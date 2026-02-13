@@ -1,5 +1,5 @@
 class PurchaseAddress
-  ActiveModel::Model
+  include ActiveModel::Model
   attr_accessor :post_code, :prefecture_id, :city, :address, :building_name, :phone_number, :user_id, :item_id
 
   with_options presence: true do
@@ -14,7 +14,7 @@ class PurchaseAddress
 
   def save
     purchase = Purchase.create(user_id: user_id, item_id: item_id)
-    Address.create(
+    ShippingAddress.create(
       post_code: post_code,
       prefecture_id: prefecture_id,
       city: city,

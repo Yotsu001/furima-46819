@@ -2,19 +2,18 @@ class PurchasesController < ApplicationController
   before_action :authenticate_user!
 
   def index
-  end
-  
-  def new
+    @item = Item.find(params[:item_id])
     @purchase_address = PurchaseAddress.new
   end
 
   def create
+    binding.pry
     @purchase_address = PurchaseAddress.new(purchase_params)
     if @purchase_address.valid?
       @purchase_address.save
       redirect_to root_path
     else
-      render :new, status: :unprocessable_entity
+      render :index, status: :unprocessable_entity
     end
   end
 
