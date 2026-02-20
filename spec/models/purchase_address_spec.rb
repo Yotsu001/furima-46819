@@ -28,12 +28,12 @@ RSpec.describe PurchaseAddress, type: :model do
       it 'post_codeにハイフンがないと保存できないこと' do
         @purchase_address.post_code = '1234567'
         @purchase_address.valid?
-        expect(@purchase_address.errors.full_messages).to include("Post code input correctly")
+        expect(@purchase_address.errors.full_messages).to include('Post code input correctly')
       end
       it 'prefecture_idが1だと保存できないこと' do
         @purchase_address.prefecture_id = 1
         @purchase_address.valid?
-        expect(@purchase_address.errors.full_messages).to include("Prefecture Select")
+        expect(@purchase_address.errors.full_messages).to include('Prefecture Select')
       end
       it 'cityが空だと保存できないこと' do
         @purchase_address.city = ''
@@ -53,17 +53,17 @@ RSpec.describe PurchaseAddress, type: :model do
       it 'phone_numberにハイフンがあると保存できないこと' do
         @purchase_address.phone_number = '090-1234-5678'
         @purchase_address.valid?
-        expect(@purchase_address.errors.full_messages).to include("Phone number は10桁もしくは11桁の半角数字で入力してください")
+        expect(@purchase_address.errors.full_messages).to include('Phone number は10桁もしくは11桁の半角数字で入力してください')
       end
       it 'phone_numberが9桁以下だと保存できないこと' do
         @purchase_address.phone_number = '090123456'
         @purchase_address.valid?
-        expect(@purchase_address.errors.full_messages).to include("Phone number は10桁もしくは11桁の半角数字で入力してください")
+        expect(@purchase_address.errors.full_messages).to include('Phone number は10桁もしくは11桁の半角数字で入力してください')
       end
       it 'phone_numberが12桁以上だと保存できないこと' do
         @purchase_address.phone_number = '090123456789'
         @purchase_address.valid?
-        expect(@purchase_address.errors.full_messages).to include("Phone number は10桁もしくは11桁の半角数字で入力してください")
+        expect(@purchase_address.errors.full_messages).to include('Phone number は10桁もしくは11桁の半角数字で入力してください')
       end
       it 'user_idが空だと保存できないこと' do
         @purchase_address.user_id = ''
@@ -74,6 +74,11 @@ RSpec.describe PurchaseAddress, type: :model do
         @purchase_address.item_id = ''
         @purchase_address.valid?
         expect(@purchase_address.errors.full_messages).to include("Item can't be blank")
+      end
+      it 'tokenが空だと保存できないこと' do
+        @purchase_address.token = ''
+        @purchase_address.valid?
+        expect(@purchase_address.errors.full_messages).to include("Token can't be blank")
       end
     end
   end
