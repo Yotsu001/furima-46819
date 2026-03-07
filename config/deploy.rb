@@ -2,7 +2,7 @@
 lock '3.20.0'
 
 # Capistranoのログの表示に利用する
-set :application, 'Furima46819'
+set :application, 'furima-46819'
 
 # どのリポジトリからアプリをpullするかを指定する
 set :repo_url,  'git@github.com:Yotsu001/furima-46819.git'
